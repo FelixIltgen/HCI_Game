@@ -1,2 +1,2 @@
 # HCI_Game
- Gameprojekt für die Vorlesung HCI
+ Gameprojekt für die Vorlesung HCI.
