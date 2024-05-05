@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4170154389127828195}
   - component: {fileID: 9168346690874150872}
   - component: {fileID: 313140510191608512}
-  - component: {fileID: -7626474358346859162}
+  - component: {fileID: 6410695570785098395}
   m_Layer: 0
   m_Name: cloudPrototyp
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7626474358346859162
+--- !u!114 &6410695570785098395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8462817176568324282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a81015fb148b5f4ebcdf5fa706eace0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6dcb1db9887f543bbe3f4f95ada491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
   source: {fileID: 0}
-  minTranslate: {x: 0, y: 0, z: 0}
-  maxTranslate: {x: 0, y: 0, z: 0}
+  minTransform: {x: 1, y: 1, z: 1}
+  maxTransform: {x: 3, y: 3, z: 3}
   detector: {fileID: 0}
-  sensibillity: 100
+  sensibility: 100
   threshold: 0.1

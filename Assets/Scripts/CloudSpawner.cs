@@ -6,7 +6,6 @@ public class CloudSpawner : MonoBehaviour
 {
    private float timer = 2;
    public GameObject cloudPrefab;
-
    bool isTimerFinished(){
 
     timer -= Time.deltaTime;
