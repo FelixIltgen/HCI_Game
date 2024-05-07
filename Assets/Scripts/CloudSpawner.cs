@@ -7,6 +7,7 @@ public class CloudSpawner : MonoBehaviour
    private float timer = 2;
    private float xPosition = 0;
    public GameObject cloudPrefab;
+
    bool isTimerFinished(){
 
     timer -= Time.deltaTime;
@@ -28,11 +29,12 @@ public class CloudSpawner : MonoBehaviour
             Instantiate(cloudPrefab, spwanPosition, cloudPrefab.transform.rotation);
             
         }
+        
     }
     public float getRandomZPosition(){
 
         xPosition = Random.Range(-3,3);
         return xPosition;
     }
-
+     
 }

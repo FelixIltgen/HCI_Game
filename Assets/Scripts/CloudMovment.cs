@@ -12,6 +12,7 @@ public class CloudMovment : MonoBehaviour
    public AudioDetection detector;
    public float sensibility = 100;
    public float threshold = 0.1f;
+   public float timeToDestroy = 0;
  
     // Update is called once per frame
     void Update()
@@ -24,4 +25,6 @@ public class CloudMovment : MonoBehaviour
       //transform.localPosition = Vector3.left*loudness;
       transform.Translate(Vector3.left*loudness*Time.deltaTime*blowSpeed, Space.World);
     }
+
+   
 }
