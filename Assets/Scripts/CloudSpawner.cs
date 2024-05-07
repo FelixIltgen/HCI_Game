@@ -5,6 +5,7 @@ using UnityEngine;
 public class CloudSpawner : MonoBehaviour
 {
    private float timer = 2;
+   private float xPosition = 0;
    public GameObject cloudPrefab;
    bool isTimerFinished(){
 
@@ -23,8 +24,15 @@ public class CloudSpawner : MonoBehaviour
     void Update()
     {
         if (isTimerFinished()){
-            Vector3 spwanPosition = new Vector3(-2,3,0);
+            Vector3 spwanPosition = new Vector3(-3,2,getRandomZPosition());
             Instantiate(cloudPrefab, spwanPosition, cloudPrefab.transform.rotation);
+            
         }
     }
+    public float getRandomZPosition(){
+
+        xPosition = Random.Range(-3,3);
+        return xPosition;
+    }
+
 }
