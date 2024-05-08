@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-   private float timer = 4;
+   private float timer = 2;
    private float xPosition = 0;
-   public GameObject cloudPrefab;
+   public GameObject cloudPrototype;
 
    bool isTimerFinished(){
 
@@ -14,7 +14,7 @@ public class CloudSpawner : MonoBehaviour
     //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
     if(timer <= 0){
 
-        timer = 4;
+        timer = 2;
         return true;
 
     } else{
@@ -26,7 +26,7 @@ public class CloudSpawner : MonoBehaviour
     {
         if (isTimerFinished()){
             Vector3 spwanPosition = new Vector3(-3,2,getRandomZPosition());
-            Instantiate(cloudPrefab, spwanPosition, cloudPrefab.transform.rotation);
+            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             
         }
         
