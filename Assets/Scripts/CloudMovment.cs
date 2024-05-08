@@ -6,19 +6,21 @@ public class CloudMovment : MonoBehaviour
 {
    public float speed;
    public float blowSpeed;
-   public AudioSource source;
-   public Vector3 minTransform;
-   public Vector3 maxTransform;
    public AudioDetection detector;
    public float sensibility = 100;
    public float threshold = 0.1f;
-   public float timeToDestroy = 0;
- 
+   public int sampelWindow = 64;
+   private AudioClip microphoneClip;
+
+   void Start()
+    {
+        getMicrophone();
+    }
     // Update is called once per frame
     void Update()
     {
       transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
-      float loudness = detector.getAudioFromMicrophone() * sensibility;
+      float loudness = getAudioFromMicrophone() * sensibility;
       if (loudness < threshold){
          loudness = 0;
       }
@@ -26,5 +28,30 @@ public class CloudMovment : MonoBehaviour
       transform.Translate(Vector3.left*loudness*Time.deltaTime*blowSpeed, Space.World);
     }
 
-   
+    public void getMicrophone(){
+        string microphoneName = Microphone.devices[0];
+        microphoneClip = Microphone.Start(microphoneName,true,20,AudioSettings.outputSampleRate);
+    }
+    public float getAudioFromMicrophone(){
+        return getAudio(Microphone.GetPosition(Microphone.devices[0]),microphoneClip);
+    }
+
+    public float getAudio(int position, AudioClip clip){
+
+        int startPosition = position - sampelWindow;
+
+        if (startPosition < 0)
+        {
+           return 0; 
+        }
+        float[] waveData = new float[sampelWindow];
+        clip.GetData(waveData, startPosition);
+
+        float totalLoudness = 0;
+        for (int i = 0; i < sampelWindow; i++)
+        {
+            totalLoudness += Mathf.Abs(waveData[i]);
+        }
+        return totalLoudness / sampelWindow;
+    }
 }
