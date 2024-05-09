@@ -5,7 +5,7 @@ using UnityEngine;
 public class CloudSpawner : MonoBehaviour
 {
    private float timer = 2;
-   private float xPosition = 0;
+   private float zPosition = 0;
    public GameObject cloudPrototype;
 
    bool isTimerFinished(){
@@ -33,8 +33,8 @@ public class CloudSpawner : MonoBehaviour
     }
     public float getRandomZPosition(){
 
-        xPosition = Random.Range(-3,3);
-        return xPosition;
+        zPosition = Random.Range(-3,3);
+        return zPosition;
     }
      
 }
