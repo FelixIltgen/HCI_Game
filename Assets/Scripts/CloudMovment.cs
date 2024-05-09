@@ -6,13 +6,12 @@ public class CloudMovment : MonoBehaviour
 {
    public float speed;
    public float blowSpeed;
-   public AudioDetection detector;
    public float sensibility = 100;
    public float threshold = 0.1f;
    public int sampelWindow = 64;
    private AudioClip microphoneClip;
-   private float xPos = 0;
-   private float zPos = 0;
+   private float xPos;
+   private float zPos;
 
    void Start()
     {
@@ -26,6 +25,7 @@ public class CloudMovment : MonoBehaviour
       Vector3 standardMovement = new Vector3(-xPos,0,-zPos);
       transform.Translate(standardMovement * speed * Time.deltaTime, Space.World);
       float loudness = getAudioFromMicrophone() * sensibility;
+
       if (loudness < threshold){
          loudness = 0;
       }
