@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6dcb1db9887f543bbe3f4f95ada491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  blowSpeed: 10
+  speed: 0.5
+  blowSpeed: 0.8
   detector: {fileID: 0}
   sensibility: 100
   threshold: 0.1

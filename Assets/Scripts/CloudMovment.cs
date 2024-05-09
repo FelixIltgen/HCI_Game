@@ -11,21 +11,26 @@ public class CloudMovment : MonoBehaviour
    public float threshold = 0.1f;
    public int sampelWindow = 64;
    private AudioClip microphoneClip;
+   private float xPos = 0;
+   private float zPos = 0;
 
    void Start()
     {
         getMicrophone();
+        xPos = gameObject.transform.position.x;
+        zPos = gameObject.transform.position.z;
     }
     // Update is called once per frame
     void Update()
     {
-      //transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+      Vector3 standardMovement = new Vector3(-xPos,0,-zPos);
+      transform.Translate(standardMovement * speed * Time.deltaTime, Space.World);
       float loudness = getAudioFromMicrophone() * sensibility;
       if (loudness < threshold){
          loudness = 0;
       }
-      transform.localPosition = Vector3.left*loudness;
-      transform.Translate(Vector3.left*loudness*Time.deltaTime*blowSpeed, Space.World);
+      Vector3 blowMovment = new Vector3(xPos,0,zPos);
+      transform.Translate(blowMovment*loudness*Time.deltaTime*blowSpeed, Space.World);
     }
 
     public void getMicrophone(){
@@ -54,4 +59,5 @@ public class CloudMovment : MonoBehaviour
         }
         return totalLoudness / sampelWindow;
     }
+
 }

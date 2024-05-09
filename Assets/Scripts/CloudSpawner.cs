@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-   private float timer = 4;
+   private float timer = 3;
    private float zPosition = 0;
    private float xPosition = 0;
    public GameObject cloudPrototype;
@@ -15,7 +15,7 @@ public class CloudSpawner : MonoBehaviour
     //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
     if(timer <= 0){
 
-        timer = 4;
+        timer = 3;
         return true;
 
     } else{
