@@ -24,7 +24,7 @@ public class CloudMovment : MonoBehaviour
       if (loudness < threshold){
          loudness = 0;
       }
-      //transform.localPosition = Vector3.left*loudness;
+      transform.localPosition = Vector3.left*loudness;
       transform.Translate(Vector3.left*loudness*Time.deltaTime*blowSpeed, Space.World);
     }
 

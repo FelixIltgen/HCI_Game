@@ -33,16 +33,20 @@ public class CloudSpawner : MonoBehaviour
         
     }
     public float getRandomZPosition(){
-        while(zPosition >= -13 || zPosition >= 13 ){
+        while(true){
             zPosition = Random.Range(-15,15);
-            Debug.Log(zPosition);
+            if(zPosition <= 15 && zPosition >= 13 || zPosition <= -13 && zPosition >= -15){ 
+                return zPosition;
+            }
         }
-        return zPosition;
     }
     public float getRandomXPosition(){
-        while(zPosition >= -13 || zPosition >= 13){
+        while(true){
             xPosition = Random.Range(-15,15);
-        }
-        return xPosition;
+            if (xPosition <= 15 && xPosition >= 13 || xPosition <= -13 && xPosition >= -15)
+            { 
+               return xPosition; 
+            }
+        } 
     } 
 }
