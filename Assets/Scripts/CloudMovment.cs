@@ -19,7 +19,7 @@ public class CloudMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+      //transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
       float loudness = getAudioFromMicrophone() * sensibility;
       if (loudness < threshold){
          loudness = 0;
