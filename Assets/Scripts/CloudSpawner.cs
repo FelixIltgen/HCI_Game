@@ -34,12 +34,12 @@ public class CloudSpawner : MonoBehaviour
     }
     public float getRandomZPosition(){
 
-        zPosition = Random.Range(-3,3);
+        zPosition = Random.Range(-15,15);
         return zPosition;
     }
     public float getRandomXPosition(){
 
-        xPosition = Random.Range(-3,3);
+        xPosition = Random.Range(-15,15);
         return xPosition;
     }
      
