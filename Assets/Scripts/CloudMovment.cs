@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
-public class CloudMovment : MonoBehaviour
-{
+public class CloudMovment : MonoBehaviour{
    public float speed;
    public float blowSpeed;
    public float sensibility = 100;
@@ -12,16 +12,23 @@ public class CloudMovment : MonoBehaviour
    private AudioClip microphoneClip;
    private float xPos;
    private float zPos;
+   public float maxWater = 100;
+   public float currentWater;
+   public WaterBar waterBar;
+   
+   void Start(){
 
-   void Start()
-    {
         getMicrophone();
         xPos = gameObject.transform.position.x;
         zPos = gameObject.transform.position.z;
+
+        currentWater = maxWater;
+        waterBar.SetMaxWater(maxWater);
+
     }
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
+
       Vector3 standardMovement = new Vector3(-xPos,0,-zPos);
       transform.Translate(standardMovement * speed * Time.deltaTime, Space.World);
       float loudness = getAudioFromMicrophone() * sensibility;
@@ -31,6 +38,7 @@ public class CloudMovment : MonoBehaviour
       }
       Vector3 blowMovment = new Vector3(xPos,0,zPos);
       transform.Translate(blowMovment*loudness*Time.deltaTime*blowSpeed, Space.World);
+      ReduceWater();
     }
 
     public void getMicrophone(){
@@ -40,7 +48,6 @@ public class CloudMovment : MonoBehaviour
     public float getAudioFromMicrophone(){
         return getAudio(Microphone.GetPosition(Microphone.devices[0]),microphoneClip);
     }
-
     public float getAudio(int position, AudioClip clip){
 
         int startPosition = position - sampelWindow;
@@ -58,6 +65,11 @@ public class CloudMovment : MonoBehaviour
             totalLoudness += Mathf.Abs(waveData[i]);
         }
         return totalLoudness / sampelWindow;
+    }
+
+    public void ReduceWater(){
+        currentWater -= Time.deltaTime;
+        waterBar.SetWaterBar(currentWater);
     }
 
 }

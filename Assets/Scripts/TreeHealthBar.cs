@@ -14,7 +14,7 @@ public class TreeHealthBar : MonoBehaviour{
     }
     public void SetMaxHealth(int health){
         slider.maxValue = 100;
-        slider.value = health; // Muss möglicherweiße weg weil bei null beginnend
+        slider.value = health;
     }
 
    
