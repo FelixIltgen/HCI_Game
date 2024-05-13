@@ -12,7 +12,7 @@ public class CloudMovment : MonoBehaviour{
    private AudioClip microphoneClip;
    private float xPos;
    private float zPos;
-   public float maxWater = 100;
+   public float maxWater = 60;
    public float currentWater;
    public WaterBar waterBar;
    

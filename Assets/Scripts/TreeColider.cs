@@ -5,8 +5,8 @@ using UnityEngine;
 public class TreeColider : MonoBehaviour{
 
     public TreeHealthBar healthBar;
-    public int startHealth = 0;
-    public int currentHealth;
+    public float startHealth = 0;
+    public float currentHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class TreeColider : MonoBehaviour{
 
        if (other.gameObject.CompareTag("Cloud")){
             
-            currentHealth += 1;
+            currentHealth += Time.deltaTime;
             healthBar.SetHealth(currentHealth);
        } 
     }
