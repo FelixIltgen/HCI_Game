@@ -11,7 +11,7 @@ public class TreeColider : MonoBehaviour{
     void Start()
     {
         currentHealth = startHealth;
-        healthBar.setMaxHealth(startHealth);
+        healthBar.SetMaxHealth(startHealth);
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class TreeColider : MonoBehaviour{
        if (other.gameObject.CompareTag("Cloud")){
             
             currentHealth += 1;
-            healthBar.setHealth(currentHealth);
+            healthBar.SetHealth(currentHealth);
        } 
     }
 }
