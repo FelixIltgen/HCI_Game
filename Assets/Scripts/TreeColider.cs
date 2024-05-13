@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeColider : MonoBehaviour
-{
+public class TreeColider : MonoBehaviour{
+
+    public TreeHealthBar healthBar;
+    public int startHealth = 0;
+    public int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = startHealth;
+        healthBar.setMaxHealth(startHealth);
     }
 
     // Update is called once per frame
@@ -17,9 +21,10 @@ public class TreeColider : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
 
-       if (other.gameObject.CompareTag("Cloud")|| other.gameObject.CompareTag("Cloud")) // <== Hier verschiedene Wolkentypen 
-       {
-        // Anzeige muss erhöht oder gesenkt werden
+       if (other.gameObject.CompareTag("Cloud")){
+            
+            currentHealth += 1;
+            healthBar.setHealth(currentHealth);
        } 
     }
 }
