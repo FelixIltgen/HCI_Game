@@ -23,7 +23,7 @@ public class TreeColider : MonoBehaviour{
 
        if (other.gameObject.CompareTag("Cloud")){
             
-            currentHealth += Time.deltaTime;
+            currentHealth += 3 * Time.deltaTime;
             healthBar.SetHealth(currentHealth);
        } 
     }
