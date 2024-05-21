@@ -54,7 +54,12 @@ public class CloudSpawner : MonoBehaviour
         }
     }
     public void spwanNextCloud(){
-        
+        if(cloudTimer(4) && isCloudActive == false){
+
+            Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
+            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
+            isCloudActive = true;
+        }
     }
     public bool cloudTimer(float time){
         float count = time;
@@ -66,5 +71,4 @@ public class CloudSpawner : MonoBehaviour
             return false;
         }
     }
-    
 }
