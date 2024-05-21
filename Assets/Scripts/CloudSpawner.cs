@@ -26,11 +26,7 @@ public class CloudSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimerFinished() && isCloudActive == false){
-            Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
-            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
-            isCloudActive = true;
-        }
+        spawnFirstCloud();
         
     }
     public float getRandomZPosition(){
@@ -49,5 +45,26 @@ public class CloudSpawner : MonoBehaviour
                return xPosition; 
             }
         } 
-    } 
+    }
+    public void spawnFirstCloud(){
+        if (isTimerFinished() && isCloudActive == false){
+            Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
+            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
+            isCloudActive = true;
+        }
+    }
+    public void spwanNextCloud(){
+        
+    }
+    public bool cloudTimer(float time){
+        float count = time;
+        count -= Time.deltaTime;
+
+        if(count <= 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 }
