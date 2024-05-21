@@ -8,6 +8,7 @@ public class CloudSpawner : MonoBehaviour
    private float zPosition = 0;
    private float xPosition = 0;
    public GameObject cloudPrototype;
+   public bool isCloudActive = false;
 
    bool isTimerFinished(){
 
@@ -25,10 +26,10 @@ public class CloudSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimerFinished()){
+        if (isTimerFinished() && isCloudActive == false){
             Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
             Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
-            
+            isCloudActive = true;
         }
         
     }
