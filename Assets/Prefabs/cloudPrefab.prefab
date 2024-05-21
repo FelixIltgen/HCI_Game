@@ -377,7 +377,7 @@ MonoBehaviour:
   sensibility: 100
   threshold: 0.1
   sampelWindow: 64
-  maxWater: 100
+  maxWater: 20
   currentWater: 0
   waterBar: {fileID: 3330648877492888067}
 --- !u!1 &5762041299950774029

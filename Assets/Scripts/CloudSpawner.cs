@@ -15,8 +15,6 @@ public class CloudSpawner : MonoBehaviour
     timer -= Time.deltaTime;
     //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
     if(timer <= 0){
-
-        timer = 3;
         return true;
 
     } else{
@@ -27,7 +25,6 @@ public class CloudSpawner : MonoBehaviour
     void Update()
     {
         spawnFirstCloud();
-        
     }
     public float getRandomZPosition(){
         while(true){
@@ -54,7 +51,7 @@ public class CloudSpawner : MonoBehaviour
         }
     }
     public void spwanNextCloud(){
-        if(cloudTimer(4) && isCloudActive == false){
+        if(/*cloudTimer(4)*/true){
 
             Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
             Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
@@ -70,5 +67,8 @@ public class CloudSpawner : MonoBehaviour
         }else{
             return false;
         }
+    }
+    public void setCloudActive(){
+        isCloudActive = false;
     }
 }

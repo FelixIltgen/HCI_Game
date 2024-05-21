@@ -12,7 +12,7 @@ public class CloudMovment : MonoBehaviour{
    private AudioClip microphoneClip;
    private float xPos;
    private float zPos;
-   public float maxWater = 60;
+   public float maxWater = 5;
    public float currentWater;
    public WaterBar waterBar;
    public CloudSpawner spawner;
@@ -73,7 +73,8 @@ public class CloudMovment : MonoBehaviour{
         waterBar.SetWaterBar(currentWater);
         if (currentWater <= 0){
             Destroy(gameObject);
-            spawner.isCloudActive = false;
+            spawner.spwanNextCloud();
+            
         }
     }
 
