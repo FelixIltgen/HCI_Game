@@ -15,6 +15,7 @@ public class CloudMovment : MonoBehaviour{
    public float maxWater = 60;
    public float currentWater;
    public WaterBar waterBar;
+   public CloudSpawner spawner;
    
    void Start(){
 
@@ -70,6 +71,10 @@ public class CloudMovment : MonoBehaviour{
     public void ReduceWater(){
         currentWater -= Time.deltaTime;
         waterBar.SetWaterBar(currentWater);
+        if (currentWater <= 0){
+            Destroy(gameObject);
+            spawner.isCloudActive = false;
+        }
     }
 
 }
