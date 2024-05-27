@@ -11,7 +11,6 @@ public class CloudSpawner2 : MonoBehaviour
     private float xPosition = 0;
     public GameObject cloudPrototype;
     public GameObject currentCloud;
-    public GameObject nextCloud;
     public bool isCloudActive = false;
     private int cloudCount = 0;
 
@@ -84,6 +83,9 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else if (isCloudActive == false && cloudCount >= 1 && CloudLifeTime())
         {
+            /*Was passiert, wenn alle benötigten Wolken gespawnt sind?
+            => If mit funktion wenn alle wolken gespawnt sind und tree leiste nicht voll ist 
+             dann game over */
             lifeTimer = 23f;
             yield return new WaitForSeconds(2);
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
