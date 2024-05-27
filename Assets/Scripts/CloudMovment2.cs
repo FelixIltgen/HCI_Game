@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.Android;
 
-public class CloudMovment : MonoBehaviour
+public class CloudMovment2 : MonoBehaviour
 {
     public float speed;
     public float blowSpeed;
@@ -17,12 +15,12 @@ public class CloudMovment : MonoBehaviour
     public float maxWater = 5;
     public float currentWater;
     public WaterBar waterBar;
-    public static CloudMovment Instance;
+    public static CloudMovment2 Instance;
     void Awake()
     {
         if (Instance == null)
         {
-            Instance = this;
+             Instance = this;
              UnityEngine.Debug.Log("Instance da");
         }
         else if (Instance != this)
@@ -95,7 +93,6 @@ public class CloudMovment : MonoBehaviour
         waterBar.SetWaterBar(currentWater);
         if (currentWater <= 0)
         {
-            CloudSpawner.Instance.SpwanNextCloud();
             //Destroy(gameObject);
         }
     }

@@ -1,74 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-   private float timer = 3;
-   private float zPosition = 0;
-   private float xPosition = 0;
-   public GameObject cloudPrototype;
-   public bool isCloudActive = false;
+    public static CloudSpawner Instance;
+    private float timer = 3;
+    private float zPosition = 0;
+    private float xPosition = 0;
+    public GameObject cloudPrototype;
+    public GameObject currentCloud;
+    public GameObject nextCloud;
+    public bool isCloudActive = false;
+  
+    bool IsTimerFinished()
+    {
 
-   bool isTimerFinished(){
-
-    timer -= Time.deltaTime;
-    //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
-    if(timer <= 0){
-        return true;
-
-    } else{
-        return false;
+        timer -= Time.deltaTime;
+        //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
+        if (timer <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-   }
+
     // Update is called once per frame
     void Update()
     {
-        spawnFirstCloud();
+        UnityEngine.Debug.Log("CloudSpawner");
+        SpawnFirstCloud();
+        
     }
-    public float getRandomZPosition(){
-        while(true){
-            zPosition = Random.Range(-15,15);
-            if(zPosition <= 15 && zPosition >= 13 || zPosition <= -13 && zPosition >= -15){ 
+    public float GetRandomZPosition()
+    {
+        while (true)
+        {
+            zPosition = Random.Range(-15, 15);
+            if (zPosition <= 15 && zPosition >= 13 || zPosition <= -13 && zPosition >= -15)
+            {
                 return zPosition;
             }
         }
     }
-    public float getRandomXPosition(){
-        while(true){
-            xPosition = Random.Range(-15,15);
+    public float GetRandomXPosition()
+    {
+        while (true)
+        {
+            xPosition = Random.Range(-15, 15);
             if (xPosition <= 15 && xPosition >= 13 || xPosition <= -13 && xPosition >= -15)
-            { 
-               return xPosition; 
+            {
+                return xPosition;
             }
-        } 
-    }
-    public void spawnFirstCloud(){
-        if (isTimerFinished() && isCloudActive == false){
-            Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
-            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
-            isCloudActive = true;
         }
     }
-    public void spwanNextCloud(){
-        if(/*cloudTimer(4)*/true){
+    public void SpawnFirstCloud()
+    {
+        if (IsTimerFinished() && isCloudActive == false)
+        {
+            Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
+            currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
+            isCloudActive = true;
+            UnityEngine.Debug.Log("First Cloud");
+        }
+    }
 
-            Vector3 spwanPosition = new Vector3(getRandomXPosition(),2,getRandomZPosition());
-            Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
+    public void SpwanNextCloud()
+    {
+       
+        UnityEngine.Debug.Log("Hallo");
+       /* if (movment.ReduceWater() && cloudTimer(4))
+        {
+            Vector3 spwanPosition = new Vector3(getRandomXPosition(), 2, getRandomZPosition());
+            nextCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             isCloudActive = true;
         }
+        else
+        {
+
+            UnityEngine.Debug.Log("Cloud already active!!");
+        }
+*/
     }
-    public bool cloudTimer(float time){
+    public bool CloudTimer(float time)
+    {
         float count = time;
         count -= Time.deltaTime;
 
-        if(count <= 0){
+        if (count <= 0)
+        {
             return true;
-        }else{
+        }
+        else
+        {
             return false;
         }
     }
-    public void setCloudActive(){
-        isCloudActive = false;
-    }
+
 }
