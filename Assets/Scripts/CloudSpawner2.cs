@@ -48,9 +48,8 @@ public class CloudSpawner2 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        SpawnClouds();
-        //SpawnFirstCloud();
+    {   
+        StartCoroutine(SpawnClouds());
 
     }
     public float GetRandomZPosition()
@@ -77,7 +76,7 @@ public class CloudSpawner2 : MonoBehaviour
     }
 
 
-    public void SpawnClouds()
+    public IEnumerator SpawnClouds()
     {
 
         if (IsTimerFinished() && isCloudActive == false && cloudCount == 0)
@@ -91,6 +90,7 @@ public class CloudSpawner2 : MonoBehaviour
         else if (isCloudActive == false && cloudCount >= 1)
         {
             Debug.Log("Nächste Wolke");
+            yield return new WaitForSeconds(2);
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             isCloudActive = true;
@@ -107,32 +107,4 @@ public class CloudSpawner2 : MonoBehaviour
             Debug.Log("Cloud is already active");
         }
     }
-
-
-    /*public void SpawnFirstCloud()
-    {
-        if (IsTimerFinished() && isCloudActive == false)
-        {
-            Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
-            currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
-            isCloudActive = true;
-            UnityEngine.Debug.Log("First Cloud");
-        }
-    }*/
-    public bool TimerAfterCloud(float time)
-    {
-        //Debug.Log("Timer läuft");
-        float count = time;
-        count -= Time.deltaTime;
-
-        if (count <= 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
 }
