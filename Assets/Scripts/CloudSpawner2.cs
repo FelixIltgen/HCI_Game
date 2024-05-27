@@ -17,7 +17,6 @@ public class CloudSpawner2 : MonoBehaviour
 
     public bool CloudLifeTime()
     {
-        Debug.Log("Current Life: " + lifeTimer);
         lifeTimer -= Time.deltaTime;
 
         if (lifeTimer <= 0)
@@ -31,9 +30,8 @@ public class CloudSpawner2 : MonoBehaviour
     }
     bool IsTimerFinished()
     {
-        //Debug.Log("Timer"+timer);
         timer -= Time.deltaTime;
-        //wird später kein timer mehr sein sonder wenn ein objekt bzw. aktion ausgeführt wird
+        
         if (timer <= 0)
         {
             return true;
@@ -42,7 +40,6 @@ public class CloudSpawner2 : MonoBehaviour
         {
             return false;
         }
-
     }
 
 
@@ -50,7 +47,6 @@ public class CloudSpawner2 : MonoBehaviour
     void Update()
     {   
         StartCoroutine(SpawnClouds());
-
     }
     public float GetRandomZPosition()
     {
@@ -83,13 +79,12 @@ public class CloudSpawner2 : MonoBehaviour
         {
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
-            isCloudActive = true;
             cloudCount += 1;
-            Debug.Log("First Cloud");
+            isCloudActive = true;
         }
-        else if (isCloudActive == false && cloudCount >= 1)
+        else if (isCloudActive == false && cloudCount >= 1 && CloudLifeTime())
         {
-            Debug.Log("Nächste Wolke");
+            lifeTimer = 23f;
             yield return new WaitForSeconds(2);
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
@@ -97,10 +92,8 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else if (CloudLifeTime())
         {
-            isCloudActive = false;
             Destroy(currentCloud);
-            Debug.Log("Wolke ist tot");
-            lifeTimer = 23f;
+            isCloudActive = false;
         }
         else
         {
