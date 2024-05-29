@@ -106,4 +106,12 @@ public class CloudSpawner2 : MonoBehaviour
             Debug.Log("Cloud is already active");
         }
     }
+    public void CheckGameProgress(){
+        if(cloudCount == 3 && TreeScript.currentHealth == 100){
+            // nächstes Level und werte zurücksetzten
+
+        }else{
+            //Gameover anzeigen
+        }
+    }
 }

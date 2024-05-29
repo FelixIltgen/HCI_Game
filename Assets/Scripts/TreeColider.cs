@@ -7,6 +7,7 @@ public class TreeColider : MonoBehaviour{
     public TreeHealthBar healthBar;
     public float startHealth = 0;
     public float currentHealth;
+    public int treeLevel;
     // Start is called before the first frame update
     void Start()
     {
