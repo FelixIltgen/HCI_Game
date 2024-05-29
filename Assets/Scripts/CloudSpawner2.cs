@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CloudSpawner2 : MonoBehaviour
 {
-    //public static CloudSpawner2 Instance;
     private float timer = 3f;
     public float lifeTimer = 23f;
     private float zPosition = 0;
@@ -13,6 +12,11 @@ public class CloudSpawner2 : MonoBehaviour
     public GameObject currentCloud;
     public bool isCloudActive = false;
     private int cloudCount = 0;
+    TreeColider TreeScript;
+
+    void Awake(){
+        TreeScript = FindObjectOfType<TreeColider>();
+    }
 
     public bool CloudLifeTime()
     {

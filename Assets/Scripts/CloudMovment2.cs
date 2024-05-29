@@ -21,7 +21,7 @@ public class CloudMovment2 : MonoBehaviour
         if (Instance == null)
         {
              Instance = this;
-             UnityEngine.Debug.Log("Instance da");
+             Debug.Log("Instance da");
         }
         else if (Instance != this)
         {
@@ -53,9 +53,7 @@ public class CloudMovment2 : MonoBehaviour
         }
         Vector3 blowMovment = new Vector3(xPos, 0, zPos);
         transform.Translate(blowMovment * loudness * Time.deltaTime * blowSpeed, Space.World);
-        ReduceWater();
-        //UnityEngine.Debug.Log("CloudMovment");
-        
+        ReduceWater(); 
     }
 
     public void GetMicrophone()
@@ -90,10 +88,6 @@ public class CloudMovment2 : MonoBehaviour
     public void ReduceWater()
     {
         currentWater -= Time.deltaTime;
-        waterBar.SetWaterBar(currentWater);
-        if (currentWater <= 0)
-        {
-            //Destroy(gameObject);
-        }
+        waterBar.SetWaterBar(currentWater);  
     }
 }
