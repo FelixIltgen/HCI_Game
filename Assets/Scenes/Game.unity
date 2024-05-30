@@ -246,6 +246,7 @@ MonoBehaviour:
   currentCloud: {fileID: 4255887646184528835, guid: 6e4b3ee9505037b46baa83e8e85b0322, type: 3}
   isCloudActive: 0
   GameOverScript: {fileID: 1200357657}
+  treeColider: {fileID: 928652317}
 --- !u!1 &183844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +1921,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 60
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
