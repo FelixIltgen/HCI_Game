@@ -13,7 +13,7 @@ public class CloudSpawner2 : MonoBehaviour
     public bool isCloudActive = false;
     private int cloudCount = 0;
     public GameOverScript GameOverScript;
-    TreeColider TreeColider;
+    public TreeColider treeColider;
 
     public bool CloudLifeTime()
     {
@@ -29,9 +29,11 @@ public class CloudSpawner2 : MonoBehaviour
         }
     }
     bool IsTimerFinished()
+
+
     {
         timer -= Time.deltaTime;
-        
+
         if (timer <= 0)
         {
             return true;
@@ -45,7 +47,7 @@ public class CloudSpawner2 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         StartCoroutine(SpawnClouds());
     }
     public float GetRandomZPosition()
@@ -84,15 +86,15 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else if (isCloudActive == false && cloudCount >= 1 && CloudLifeTime())
         {
-            /*Was passiert, wenn alle benötigten Wolken gespawnt sind?
-            => If mit funktion wenn alle wolken gespawnt sind und tree leiste nicht voll ist 
-             dann game over */
+            
             CheckGameProgress();
+
             lifeTimer = 23f;
             yield return new WaitForSeconds(2);
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             isCloudActive = true;
+            cloudCount += 1;
         }
         else if (CloudLifeTime())
         {
@@ -104,12 +106,21 @@ public class CloudSpawner2 : MonoBehaviour
             Debug.Log("Cloud is already active");
         }
     }
-    public void CheckGameProgress(){
-        Debug.Log("GameOverCheck");
-        if(cloudCount ==3 && TreeColider.currentHealth ==100){
+    public void CheckGameProgress()
+    {
+        Debug.Log("Checke das Spiel");
+        if (cloudCount < 3 && treeColider.currentHealth <= 100){
+
+            Debug.Log("Spiel geht weiter");
+        }
+        else if (cloudCount == 3 && treeColider.currentHealth == 100){
+
             Debug.Log("Nächstes Level erreicht!");
-        }else{
+        }
+        else{
+
             GameOverScript.GameOverSetUp(cloudCount);
+            Debug.Log("GameOver");
         }
     }
 }
