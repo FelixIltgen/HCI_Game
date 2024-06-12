@@ -79,7 +79,7 @@ public class CloudSpawner2 : MonoBehaviour
 
         if (IsTimerFinished() && isCloudActive == false && cloudCount == 0)
         {
-            Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 2, GetRandomZPosition());
+            Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 7, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             cloudCount += 1;
             isCloudActive = true;
