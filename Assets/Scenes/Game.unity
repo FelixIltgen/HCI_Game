@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTimer: 23
-  cloudPrototype: {fileID: 4255887646184528835, guid: 6e4b3ee9505037b46baa83e8e85b0322, type: 3}
-  currentCloud: {fileID: 4255887646184528835, guid: 6e4b3ee9505037b46baa83e8e85b0322, type: 3}
+  cloudPrototype: {fileID: 1259298165679997955, guid: a3e0c1e4418eb2b43a90953c58a95229, type: 3}
+  currentCloud: {fileID: 1259298165679997955, guid: a3e0c1e4418eb2b43a90953c58a95229, type: 3}
   isCloudActive: 0
   GameOverScript: {fileID: 1200357657}
   treeColider: {fileID: 928652317}
@@ -557,7 +557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &500596338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &670021735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &850565134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,7 +1277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &942409540
 BoxCollider:
   m_ObjectHideFlags: 0
