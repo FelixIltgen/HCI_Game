@@ -106,21 +106,24 @@ public class CloudSpawner2 : MonoBehaviour
             Debug.Log("Cloud is already active");
         }
     }
-    public void CheckGameProgress()
+    public int CheckGameProgress()
     {
         Debug.Log("Checke das Spiel");
         if (cloudCount < 3 && treeColider.currentHealth <= 100){
 
             Debug.Log("Spiel geht weiter");
+            return 0;
         }
         else if (cloudCount == 3 && treeColider.currentHealth == 100){
 
             Debug.Log("Nächstes Level erreicht!");
+            return 1;
         }
         else{
 
             GameOverScript.GameOverSetUp(cloudCount);
             Debug.Log("GameOver");
+            return 2;
         }
     }
 }
