@@ -12,8 +12,10 @@ public class CloudSpawner2 : MonoBehaviour
     public GameObject currentCloud;
     public bool isCloudActive = false;
     private int cloudCount = 0;
+    private int treeLevel = 0;
     public GameOverScript GameOverScript;
     public TreeColider treeColider;
+    public TreeManager treeManager;
 
     public bool CloudLifeTime()
     {
@@ -106,24 +108,24 @@ public class CloudSpawner2 : MonoBehaviour
             Debug.Log("Cloud is already active");
         }
     }
-    public int CheckGameProgress()
+    public void CheckGameProgress()
     {
         Debug.Log("Checke das Spiel");
-        if (cloudCount < 3 && treeColider.currentHealth <= 100){
+        if (cloudCount <= 3 && treeColider.currentHealth <= 60){//currentHealth bleibt immer 0
 
             Debug.Log("Spiel geht weiter");
-            return 0;
         }
-        else if (cloudCount == 3 && treeColider.currentHealth == 100){
+        else if (cloudCount <= 3 && treeColider.currentHealth == 60){
 
             Debug.Log("Nächstes Level erreicht!");
-            return 1;
+            treeManager.trees[treeLevel].SetActive(false); 
+            treeLevel += 1;
+            treeManager.trees[treeLevel].SetActive(true); 
         }
         else{
 
             GameOverScript.GameOverSetUp(cloudCount);
             Debug.Log("GameOver");
-            return 2;
         }
     }
 }

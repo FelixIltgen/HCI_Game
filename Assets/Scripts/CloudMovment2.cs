@@ -42,9 +42,8 @@ public class CloudMovment2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Hier If für Wolke zerstört
         Vector3 standardMovement = new Vector3(-xPos, 0, -zPos);
-        transform.Translate(standardMovement * speed * Time.deltaTime, Space.World);
+        transform.Translate(speed * Time.deltaTime * standardMovement, Space.World);
         float loudness = GetAudioFromMicrophone() * sensibility;
 
         if (loudness < threshold)
@@ -52,7 +51,7 @@ public class CloudMovment2 : MonoBehaviour
             loudness = 0;
         }
         Vector3 blowMovment = new Vector3(xPos, 0, zPos);
-        transform.Translate(blowMovment * loudness * Time.deltaTime * blowSpeed, Space.World);
+        transform.Translate(blowSpeed * loudness * Time.deltaTime * blowMovment, Space.World);
         ReduceWater(); 
     }
 

@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeObserver : MonoBehaviour
+public class TreeManager : MonoBehaviour
 {
-    public CloudSpawner2 cloudSpawner;
-    public TreeColider treeColider;
-
     public GameObject[] trees;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +16,6 @@ public class TreeObserver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+          
     }
 }

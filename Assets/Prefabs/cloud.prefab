@@ -297,10 +297,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9b2a653fd4b1c4ca510b577d119de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  blowSpeed: 0.8
+  speed: 0.8
+  blowSpeed: 0.5
   sensibility: 100
-  threshold: 0.1
+  threshold: 0.3
   sampelWindow: 64
   maxWater: 20
   currentWater: 0
