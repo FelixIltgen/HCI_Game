@@ -18,4 +18,7 @@ public class TreeManager : MonoBehaviour
     {
           
     }
+    public GameObject[] GetTrees(){
+        return trees;
+    }
 }

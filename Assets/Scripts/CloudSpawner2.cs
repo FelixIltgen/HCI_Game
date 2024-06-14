@@ -11,11 +11,14 @@ public class CloudSpawner2 : MonoBehaviour
     public GameObject cloudPrototype;
     public GameObject currentCloud;
     public bool isCloudActive = false;
-    private int cloudCount = 0;
+    public int cloudCount = 0;
     private int treeLevel = 0;
+    public GameObject[] trees;
     public GameOverScript GameOverScript;
-    public TreeColider treeColider;
+    //public float treeHealth;
     public TreeManager treeManager;
+    public TreeColider treeColider;
+   
 
     public bool CloudLifeTime()
     {
@@ -31,8 +34,6 @@ public class CloudSpawner2 : MonoBehaviour
         }
     }
     bool IsTimerFinished()
-
-
     {
         timer -= Time.deltaTime;
 
@@ -46,11 +47,12 @@ public class CloudSpawner2 : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {
         StartCoroutine(SpawnClouds());
+        //Debug.Log("Leben: "+ treeColider.GetHealth()+"Leben: "+cloudCount);
+        
     }
     public float GetRandomZPosition()
     {
@@ -111,21 +113,22 @@ public class CloudSpawner2 : MonoBehaviour
     public void CheckGameProgress()
     {
         Debug.Log("Checke das Spiel");
-        if (cloudCount <= 3 && treeColider.currentHealth <= 60){//currentHealth bleibt immer 0
+        if (cloudCount < 3 && treeColider.GetHealth() < 60){
 
             Debug.Log("Spiel geht weiter");
         }
-        else if (cloudCount <= 3 && treeColider.currentHealth == 60){
+        else if (cloudCount <= 3 && treeColider.GetHealth() >= 60){
 
-            Debug.Log("Nächstes Level erreicht!");
-            treeManager.trees[treeLevel].SetActive(false); 
+            Debug.Log("Naechstes Level erreicht!");
+            trees = treeManager.GetTrees();
+            trees[treeLevel].SetActive(false);
             treeLevel += 1;
-            treeManager.trees[treeLevel].SetActive(true); 
+            trees[treeLevel].SetActive(true);
         }
         else{
-
-            GameOverScript.GameOverSetUp(cloudCount);
             Debug.Log("GameOver");
+            GameOverScript.GameOverSetUp(cloudCount);
+            
         }
     }
 }
