@@ -298,7 +298,6 @@ MonoBehaviour:
   GameOverScript: {fileID: 1200357657}
   treeManager: {fileID: 57521414}
   treeColider: {fileID: 1543681329}
-  treeHealthBar: {fileID: 1175485359}
 --- !u!1 &183844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,7 +3130,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.014617897, y: 0.013716013, z: 0.15532143}
+  m_Size: {x: 0.015, y: 0.015, z: 0.15532143}
   m_Center: {x: 0, y: 0, z: 0.06}
 --- !u!1 &2882423360390399940
 GameObject:
@@ -3144,6 +3143,8 @@ GameObject:
   - component: {fileID: 2543333581572005246}
   - component: {fileID: 1505442522860933851}
   - component: {fileID: 3675096409422702097}
+  - component: {fileID: 3675096409422702098}
+  - component: {fileID: 3675096409422702099}
   m_Layer: 0
   m_Name: thirdTree
   m_TagString: Untagged
@@ -3196,6 +3197,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3675096409422702098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882423360390399940}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.014999999, y: 0.015000001, z: 0.11842318}
+  m_Center: {x: 0, y: 1.7485058e-16, z: 0.03545085}
+--- !u!114 &3675096409422702099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882423360390399940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e402a5128af5c87469612b41e79f5a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1175485359}
+  startHealth: 0
 --- !u!4 &5019971252902724817
 Transform:
   m_ObjectHideFlags: 0
@@ -3222,6 +3258,8 @@ GameObject:
   - component: {fileID: 5019971252902724817}
   - component: {fileID: 8216077362685512564}
   - component: {fileID: 6188413855898501054}
+  - component: {fileID: 8216077362685512565}
+  - component: {fileID: 8216077362685512566}
   m_Layer: 0
   m_Name: scondTree
   m_TagString: Untagged
@@ -3323,6 +3361,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683918683081072235}
   m_Mesh: {fileID: -6232621050582123397, guid: e2d9aa6955ec91443809b5fcecdef328, type: 3}
+--- !u!65 &8216077362685512565
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683918683081072235}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015, y: 0.015000001, z: 0.12181528}
+  m_Center: {x: 0, y: -0, z: 0.03787795}
+--- !u!114 &8216077362685512566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683918683081072235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e402a5128af5c87469612b41e79f5a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1175485359}
+  startHealth: 0
 --- !u!23 &8544065477012510302
 MeshRenderer:
   m_ObjectHideFlags: 0

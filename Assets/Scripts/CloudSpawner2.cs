@@ -12,15 +12,13 @@ public class CloudSpawner2 : MonoBehaviour
     public GameObject currentCloud;
     public bool isCloudActive = false;
     public int cloudCount = 0;
+    public int maxClouds = 0;
     private int treeLevel = 0;
     public GameObject[] trees;
     public GameOverScript GameOverScript;
     public TreeManager treeManager;
     public TreeColider treeColider;
-
-    public TreeHealthBar treeHealthBar;
-   
-
+    
     public bool CloudLifeTime()
     {
         lifeTimer -= Time.deltaTime;
@@ -125,13 +123,13 @@ public class CloudSpawner2 : MonoBehaviour
             trees[treeLevel].SetActive(false);
             treeLevel += 1;
             trees[treeLevel].SetActive(true);
-            
-            treeHealthBar.ResetHealth();
+
+            maxClouds = cloudCount;
             cloudCount = 0;
         }
         else{
             Debug.Log("GameOver");
-            GameOverScript.GameOverSetUp(cloudCount);
+            GameOverScript.GameOverSetUp(maxClouds);
             
         }
     }

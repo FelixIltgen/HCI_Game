@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,9 +16,4 @@ public class TreeHealthBar : MonoBehaviour{
         slider.value = health;
     }
 
-    public void ResetHealth(){
-        slider.maxValue = 0;
-    }
-
-   
 }
