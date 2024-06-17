@@ -298,6 +298,7 @@ MonoBehaviour:
   GameOverScript: {fileID: 1200357657}
   treeManager: {fileID: 57521414}
   treeColider: {fileID: 1543681329}
+  treeHealthBar: {fileID: 1175485359}
 --- !u!1 &183844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1349,7 @@ GameObject:
   - component: {fileID: 870172729}
   - component: {fileID: 870172728}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,7 +1708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1042167167
 AudioSource:
   m_ObjectHideFlags: 0

@@ -17,5 +17,9 @@ public class TreeHealthBar : MonoBehaviour{
         slider.value = health;
     }
 
+    public void ResetHealth(){
+        slider.maxValue = 0;
+    }
+
    
 }
