@@ -75,8 +75,6 @@ public class CloudSpawner2 : MonoBehaviour
             }
         }
     }
-
-
     public IEnumerator SpawnClouds()
     {
 
@@ -85,6 +83,7 @@ public class CloudSpawner2 : MonoBehaviour
             Vector3 spwanPosition = new Vector3(GetRandomXPosition(), 7, GetRandomZPosition());
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             cloudCount += 1;
+            GameManager.instance.cloudScore += 1;
             isCloudActive = true;
         }
         else if (isCloudActive == false && cloudCount >= 1 && CloudLifeTime())
@@ -98,6 +97,7 @@ public class CloudSpawner2 : MonoBehaviour
             currentCloud = Instantiate(cloudPrototype, spwanPosition, cloudPrototype.transform.rotation);
             isCloudActive = true;
             cloudCount += 1;
+            GameManager.instance.cloudScore += 1;
         }
         else if (CloudLifeTime())
         {
@@ -129,7 +129,8 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else{
             Debug.Log("GameOver");
-            GameOverScript.GameOverSetUp(maxClouds);
+            GameOverScript.GameOverSetUp(GameManager.instance.cloudScore);
+            gameObject.SetActive(false);
             
         }
     }
