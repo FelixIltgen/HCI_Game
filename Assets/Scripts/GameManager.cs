@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int cloudScore = 0;
-    public float timeScore = 0f;
-    public float sysTime = 0f;
+    public float timeScore = 0.0f;
+    public float sysTime = 0.0f;
 
     void Awake() {
         instance = this;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
     void Update(){
         sysTime += Time.deltaTime;
+        //Debug.Log("Time: "+sysTime);
         timeScore = sysTime;
     }
 }
