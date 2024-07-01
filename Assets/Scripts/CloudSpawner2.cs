@@ -129,8 +129,10 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else{
             Debug.Log("GameOver");
+            GameManager.instance.gameOver = true;
             GameOverScript.GameOverSetUp(GameManager.instance.cloudScore);
             gameObject.SetActive(false);
+            
             
         }
     }

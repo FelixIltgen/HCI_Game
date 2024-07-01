@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int cloudScore = 0;
     public float timeScore = 0.0f;
     public float sysTime = 0.0f;
+    public bool gameOver = false;
 
     void Awake() {
         instance = this;
@@ -20,8 +21,16 @@ public class GameManager : MonoBehaviour
         
     }
     void Update(){
-        sysTime += Time.deltaTime;
-        //Debug.Log("Time: "+sysTime);
-        timeScore = sysTime;
+
+        if(gameOver){
+            timeScore = sysTime;
+            //Daten in playerPrefs speichern.
+
+        }else{
+
+            sysTime += Time.deltaTime;
+            timeScore = sysTime;
+        }
+        
     }
 }
