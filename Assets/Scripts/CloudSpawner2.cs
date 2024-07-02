@@ -130,10 +130,8 @@ public class CloudSpawner2 : MonoBehaviour
         else{
             Debug.Log("GameOver");
             GameManager.instance.gameOver = true;
-            GameOverScript.GameOverSetUp(GameManager.instance.cloudScore);
+            GameOverScript.GameOverSetUp(maxClouds);
             gameObject.SetActive(false);
-            PlayerPrefs.SetInt("cloudCount",GameManager.instance.cloudScore);
-            PlayerPrefs.SetFloat("timeCount", GameManager.instance.timeScore); 
         }
     }
 }

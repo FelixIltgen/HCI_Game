@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public float timeScore = 0.0f;
     public float sysTime = 0.0f;
     public bool gameOver = false;
+    public bool gameWin = false;
+    public CloudSpawner2 cloudSpawner2;
 
     void Awake() {
         instance = this;
@@ -22,15 +24,22 @@ public class GameManager : MonoBehaviour
     }
     void Update(){
 
-        if(gameOver){
+        if(gameOver || gameWin){
             timeScore = sysTime;
-            //Daten in playerPrefs speichern.
+            CheckAndSaveHighScore();
 
         }else{
-
             sysTime += Time.deltaTime;
             timeScore = sysTime;
         }
-        
+    }
+    private void CheckAndSaveHighScore(){
+        if(cloudSpawner2.maxClouds < PlayerPrefs.GetInt("cloudCount")){
+
+            PlayerPrefs.SetInt("cloudCount",cloudScore);
+        }
+        if(sysTime < PlayerPrefs.GetFloat("timeCount")){
+            PlayerPrefs.SetFloat("timeCount", timeScore); 
+        }
     }
 }
