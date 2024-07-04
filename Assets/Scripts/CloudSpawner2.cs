@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CloudSpawner2 : MonoBehaviour
 {
@@ -12,23 +13,22 @@ public class CloudSpawner2 : MonoBehaviour
     public GameObject currentCloud;
     public bool isCloudActive = false;
     public int cloudCount = 0;
-    public int maxClouds = 0;
+    public int maxClouds = 1;
     private int treeLevel = 0;
     public GameObject[] trees;
     public GameOverScript GameOverScript;
     public TreeManager treeManager;
     public TreeColider treeColider;
     
-    public bool CloudLifeTime()
+    public void CloudLifeTime()
     {
-        lifeTimer -= Time.deltaTime;
+        lifeTimer -= Time.deltaTime;  
+    }
+    public bool IsCloudLifeTime(){
 
-        if (lifeTimer <= 0)
-        {
+        if (lifeTimer <= 0){
             return true;
-        }
-        else
-        {
+        }else{
             return false;
         }
     }
@@ -49,8 +49,10 @@ public class CloudSpawner2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CloudLifeTime();
+        IsCloudLifeTime();
         StartCoroutine(SpawnClouds());
-        //Debug.Log("Leben: "+ treeColider.GetHealth()+"Leben: "+cloudCount);
+        Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
         
     }
     public float GetRandomZPosition()
@@ -86,7 +88,7 @@ public class CloudSpawner2 : MonoBehaviour
             GameManager.instance.cloudScore += 1;
             isCloudActive = true;
         }
-        else if (isCloudActive == false && cloudCount >= 1 && CloudLifeTime())
+        else if (isCloudActive == false && cloudCount >= 1 && IsCloudLifeTime())
         {
             
             CheckGameProgress();
@@ -99,7 +101,7 @@ public class CloudSpawner2 : MonoBehaviour
             cloudCount += 1;
             GameManager.instance.cloudScore += 1;
         }
-        else if (CloudLifeTime())
+        else if (IsCloudLifeTime())
         {
             Destroy(currentCloud);
             isCloudActive = false;
@@ -126,6 +128,13 @@ public class CloudSpawner2 : MonoBehaviour
 
             maxClouds = cloudCount;
             cloudCount = 0;
+            //lifeTimer = 23f;
+
+        }
+        else if (treeLevel == 3 && treeColider.GetHealth() >= 60 ){
+            Debug.Log("Game finished");
+            SceneManager.LoadScene("GameWin");
+
         }
         else{
             Debug.Log("GameOver");

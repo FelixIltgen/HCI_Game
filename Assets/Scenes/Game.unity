@@ -2292,6 +2292,8 @@ MonoBehaviour:
   timeScore: 0
   sysTime: 0
   gameOver: 0
+  gameWin: 0
+  cloudSpawner2: {fileID: 117915897}
 --- !u!4 &1003140011
 Transform:
   m_ObjectHideFlags: 0

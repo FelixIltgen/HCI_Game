@@ -12,7 +12,7 @@ public class CloudMovment2 : MonoBehaviour
     private AudioClip microphoneClip;
     private float xPos;
     private float zPos;
-    public float maxWater = 5;
+    public float maxWater;
     public float currentWater;
     public WaterBar waterBar;
     public static CloudMovment2 Instance;
@@ -86,6 +86,7 @@ public class CloudMovment2 : MonoBehaviour
 
     public void ReduceWater()
     {
+        Debug.Log("Water: " + currentWater);
         currentWater -= Time.deltaTime;
         waterBar.SetWaterBar(currentWater);  
     }
