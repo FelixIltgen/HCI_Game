@@ -18,6 +18,6 @@ public class GameOverScript : MonoBehaviour
     }
     
     public void MainMenuButton(){
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
