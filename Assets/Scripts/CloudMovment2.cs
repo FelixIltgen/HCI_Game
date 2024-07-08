@@ -27,11 +27,12 @@ public class CloudMovment2 : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     void Start()
     {
-
+        waterBar = GetComponentInChildren<WaterBar>();
         GetMicrophone();
         xPos = gameObject.transform.position.x;
         zPos = gameObject.transform.position.z;

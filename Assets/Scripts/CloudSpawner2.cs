@@ -52,8 +52,8 @@ public class CloudSpawner2 : MonoBehaviour
         CloudLifeTime();
         IsCloudLifeTime();
         StartCoroutine(SpawnClouds());
+        CheckGameProgress();
         Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
-        
     }
     public float GetRandomZPosition()
     {
@@ -91,7 +91,7 @@ public class CloudSpawner2 : MonoBehaviour
         else if (isCloudActive == false && cloudCount >= 1 && IsCloudLifeTime())
         {
             
-            CheckGameProgress();
+            //CheckGameProgress();
 
             lifeTimer = 23f;
             yield return new WaitForSeconds(2);
@@ -114,7 +114,7 @@ public class CloudSpawner2 : MonoBehaviour
     public void CheckGameProgress()
     {
         Debug.Log("Checke das Spiel");
-        if (cloudCount < 3 && treeColider.GetHealth() < 60){
+        if (cloudCount <= 3 && treeColider.GetHealth() < 60){
 
             Debug.Log("Spiel geht weiter");
         }
@@ -126,9 +126,12 @@ public class CloudSpawner2 : MonoBehaviour
             treeLevel += 1;
             trees[treeLevel].SetActive(true);
 
+            
             maxClouds = cloudCount;
             cloudCount = 0;
-            //lifeTimer = 23f;
+            lifeTimer = 23f;
+            Destroy(currentCloud);
+            isCloudActive = false;
 
         }
         else if (treeLevel == 3 && treeColider.GetHealth() >= 60 ){
@@ -136,10 +139,11 @@ public class CloudSpawner2 : MonoBehaviour
             SceneManager.LoadScene("GameWin");
 
         }
-        else{
+        else {
             Debug.Log("GameOver");
             GameManager.instance.gameOver = true;
             GameOverScript.GameOverSetUp(maxClouds);
+            Destroy(currentCloud);
             gameObject.SetActive(false);
         }
     }
