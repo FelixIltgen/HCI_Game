@@ -19,6 +19,8 @@ public class CloudSpawner2 : MonoBehaviour
     public GameOverScript GameOverScript;
     public TreeManager treeManager;
     public TreeColider treeColider;
+
+    public GameObject emptyBar;
     
     public void CloudLifeTime()
     {
@@ -49,11 +51,15 @@ public class CloudSpawner2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckGameProgress();
+        ShowEmptyBar();
         CloudLifeTime();
         IsCloudLifeTime();
         StartCoroutine(SpawnClouds());
-        CheckGameProgress();
-        Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
+        
+        //Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
+        //Debug.Log("Wolke: " + isCloudActive);
+        
     }
     public float GetRandomZPosition()
     {
@@ -145,6 +151,13 @@ public class CloudSpawner2 : MonoBehaviour
             GameOverScript.GameOverSetUp(maxClouds);
             Destroy(currentCloud);
             gameObject.SetActive(false);
+        }
+    }
+    public void ShowEmptyBar(){
+        if(isCloudActive){
+            emptyBar.SetActive(false);
+        }else{
+            emptyBar.SetActive(true);
         }
     }
 }
