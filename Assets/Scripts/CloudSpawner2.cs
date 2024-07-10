@@ -51,11 +51,12 @@ public class CloudSpawner2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckGameProgress();
-        ShowEmptyBar();
+        
         CloudLifeTime();
         IsCloudLifeTime();
         StartCoroutine(SpawnClouds());
+        CheckGameProgress();
+        ShowEmptyBar();
         
         //Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
         //Debug.Log("Wolke: " + isCloudActive);
@@ -160,4 +161,5 @@ public class CloudSpawner2 : MonoBehaviour
             emptyBar.SetActive(true);
         }
     }
+    
 }

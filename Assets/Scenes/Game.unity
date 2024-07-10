@@ -2784,7 +2784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beba5a8bb385a4247ba10e8a8190841f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1064787569}
 --- !u!1 &1101185287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,7 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e402a5128af5c87469612b41e79f5a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1175485359}
   startHealth: 0
 --- !u!4 &1543681330
 Transform:
