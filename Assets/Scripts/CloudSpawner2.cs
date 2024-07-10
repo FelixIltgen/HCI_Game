@@ -150,13 +150,9 @@ public class CloudSpawner2 : MonoBehaviour
             }
             else
             {
-
                 Debug.Log("Last Tree reached");
-                //trees = treeManager.GetTrees();
-                //trees[treeLevel].SetActive(false);
-                //trees[treeLevel].SetActive(true);
+                trees[treeLevel].SetActive(true);
                 gameFinished = true;
-                //Vielleicht die Courtine anhalten
             }
         }
         else
