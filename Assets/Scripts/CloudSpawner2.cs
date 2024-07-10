@@ -19,18 +19,22 @@ public class CloudSpawner2 : MonoBehaviour
     public GameOverScript GameOverScript;
     public TreeManager treeManager;
     public TreeColider treeColider;
-
+    public bool gameFinished = false;
     public GameObject emptyBar;
-    
+
     public void CloudLifeTime()
     {
-        lifeTimer -= Time.deltaTime;  
+        lifeTimer -= Time.deltaTime;
     }
-    public bool IsCloudLifeTime(){
+    public bool IsCloudLifeTime()
+    {
 
-        if (lifeTimer <= 0){
+        if (lifeTimer <= 0)
+        {
             return true;
-        }else{
+        }
+        else
+        {
             return false;
         }
     }
@@ -51,16 +55,16 @@ public class CloudSpawner2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        IsGameFinished();
         CloudLifeTime();
         IsCloudLifeTime();
         StartCoroutine(SpawnClouds());
         CheckGameProgress();
         ShowEmptyBar();
-        
+
         //Debug.Log("Leben: " + lifeTimer + " und " + IsCloudLifeTime());
         //Debug.Log("Wolke: " + isCloudActive);
-        
+
     }
     public float GetRandomZPosition()
     {
@@ -97,7 +101,7 @@ public class CloudSpawner2 : MonoBehaviour
         }
         else if (isCloudActive == false && cloudCount >= 1 && IsCloudLifeTime())
         {
-            
+
             //CheckGameProgress();
 
             lifeTimer = 23f;
@@ -121,32 +125,42 @@ public class CloudSpawner2 : MonoBehaviour
     public void CheckGameProgress()
     {
         Debug.Log("Checke das Spiel");
-        if (cloudCount <= 3 && treeColider.GetHealth() < 60){
+        if (cloudCount <= 3 && treeColider.GetHealth() < 60)
+        {
 
             Debug.Log("Spiel geht weiter");
         }
-        else if (cloudCount <= 3 && treeColider.GetHealth() >= 60){
+        else if (cloudCount <= 3 && treeColider.GetHealth() >= 60)
+        {
 
             Debug.Log("Naechstes Level erreicht!");
-            trees = treeManager.GetTrees();
-            trees[treeLevel].SetActive(false);
-            treeLevel += 1;
-            trees[treeLevel].SetActive(true);
+            if (treeLevel < 3)
+            {
+                trees = treeManager.GetTrees();
+                trees[treeLevel].SetActive(false);
+                treeLevel += 1;
+                trees[treeLevel].SetActive(true);
 
-            
-            maxClouds = cloudCount;
-            cloudCount = 0;
-            lifeTimer = 23f;
-            Destroy(currentCloud);
-            isCloudActive = false;
+                maxClouds = cloudCount;
+                cloudCount = 0;
+                lifeTimer = 23f;
+                Destroy(currentCloud);
+                isCloudActive = false;
 
+            }
+            else
+            {
+
+                Debug.Log("Last Tree reached");
+                //trees = treeManager.GetTrees();
+                //trees[treeLevel].SetActive(false);
+                //trees[treeLevel].SetActive(true);
+                gameFinished = true;
+                //Vielleicht die Courtine anhalten
+            }
         }
-        else if (treeLevel == 3 && treeColider.GetHealth() >= 60 ){
-            Debug.Log("Game finished");
-            SceneManager.LoadScene("GameWin");
-
-        }
-        else {
+        else
+        {
             Debug.Log("GameOver");
             GameManager.instance.gameOver = true;
             GameOverScript.GameOverSetUp(maxClouds);
@@ -154,12 +168,24 @@ public class CloudSpawner2 : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    public void ShowEmptyBar(){
-        if(isCloudActive){
+    public void ShowEmptyBar()
+    {
+        if (isCloudActive)
+        {
             emptyBar.SetActive(false);
-        }else{
+        }
+        else
+        {
             emptyBar.SetActive(true);
         }
     }
-    
+    public void IsGameFinished()
+    {
+        if (gameFinished)
+        {
+            Debug.Log("Game finished");
+            SceneManager.LoadScene("GameWin");
+        }
+    }
+
 }
