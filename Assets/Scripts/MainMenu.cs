@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public AudioSource clickAudio;
     public void StartButton(){
         SceneManager.LoadScene("Game");
     }
@@ -13,5 +14,6 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Spiel geschlossen!");
         Application.Quit();
     }
+
  
 }
