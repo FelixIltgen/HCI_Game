@@ -15,6 +15,6 @@ public class UiCloudTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshProUGUI.text = GameManager.instance.timeScore.ToString("0.0");
+        textMeshProUGUI.text = GameManager.instance.timeScore.ToString("0,0");
     }
 }

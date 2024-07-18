@@ -6,7 +6,7 @@ public class CloudMovment2 : MonoBehaviour
 {
     public float speed;
     public float blowSpeed;
-    public float sensibility = 100;
+    public float sensibility;
     public float threshold = 0.1f;
     public int sampelWindow = 64;
     private AudioClip microphoneClip;
@@ -27,7 +27,7 @@ public class CloudMovment2 : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+        sensibility = PlayerPrefs.GetFloat("sens");
     }
 
     void Start()
@@ -67,7 +67,6 @@ public class CloudMovment2 : MonoBehaviour
     }
     public float GetAudio(int position, AudioClip clip)
     {
-
         int startPosition = position - sampelWindow;
 
         if (startPosition < 0)
