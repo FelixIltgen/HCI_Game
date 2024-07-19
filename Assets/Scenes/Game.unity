@@ -379,6 +379,7 @@ MonoBehaviour:
   treeColider: {fileID: 1543681329}
   gameFinished: 0
   emptyBar: {fileID: 1846850172}
+  fxSound: {fileID: 0}
 --- !u!1 &183844586
 GameObject:
   m_ObjectHideFlags: 0

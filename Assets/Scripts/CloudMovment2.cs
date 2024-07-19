@@ -16,6 +16,7 @@ public class CloudMovment2 : MonoBehaviour
     public float currentWater;
     public WaterBar waterBar;
     public static CloudMovment2 Instance;
+    
     void Awake()
     {
         if (Instance == null)
@@ -32,6 +33,7 @@ public class CloudMovment2 : MonoBehaviour
 
     void Start()
     {
+        
         waterBar = GetComponentInChildren<WaterBar>();
         GetMicrophone();
         xPos = gameObject.transform.position.x;

@@ -21,6 +21,7 @@ public class CloudSpawner2 : MonoBehaviour
     public TreeColider treeColider;
     public bool gameFinished = false;
     public GameObject emptyBar;
+    public AudioSource fxSound;
 
     public void CloudLifeTime()
     {
