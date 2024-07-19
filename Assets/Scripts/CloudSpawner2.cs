@@ -182,6 +182,7 @@ public class CloudSpawner2 : MonoBehaviour
         {
             Debug.Log("Game finished");
             SceneManager.LoadScene("GameWin");
+            GameManager.instance.gameWin = true;
         }
     }
 

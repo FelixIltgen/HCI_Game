@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
     private void CheckAndSaveHighScore(){
-        if(cloudSpawner2.maxClouds < PlayerPrefs.GetInt("cloudCount")){
+        if(cloudScore < PlayerPrefs.GetInt("cloudCount")){
 
             PlayerPrefs.SetInt("cloudCount",cloudScore);
         }
