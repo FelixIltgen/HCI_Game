@@ -9,7 +9,6 @@ Ziel im Spiel ist es einen Baum wachsen zu lassen indem eine Regenwolke über de
 Der Haupteil dieses Projektes lag im schreiben der Hausarbeit zusätzlich dazu sollte der Prototyp umgesetzt werden um die Hypothesen aus der Hausarbeit zu unterstützen. Dabei lagen die Anfoderungen des Prototyps auf der Implementierung und nicht auf der graphischen Umsetzung.
 
 ![Image](https://github.com/user-attachments/assets/aee061f6-0214-42a0-914c-847a8ec47bf9)
-![Image](https://github.com/user-attachments/assets/619e2344-3324-4f6e-9216-22d18b31aaaf)
 
 ## Umsetzung 
 Als Plattform und Entwicklungsumgebung habe ich mich für Unity und C# entschieden. 
