@@ -11,5 +11,5 @@ Der Haupteil dieses Projektes lag im schreiben der Hausarbeit zusätzlich dazu s
 Als Plattform und Entwicklungsumgebung habe ich mich für Unity und C# entschieden. 
 Geschrieben wurde das Projekt mit:
 ```
-Mit Unity 3.13.0
+Mit Unity 2022.3.27f1
 ```
