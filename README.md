@@ -1,4 +1,4 @@
-# HCI_Game
+# HCI in Games
 ### Exam submission in the HCI in Games module at Offenburg University of Applied Sciences.
 This project is an examination assignment that was created in connection with the HCI in Games module of my Master's program at the HS Offenburg. The examination consisted of a term paper on HCI in Games and an additional practical part which consisted of the realization of a game prototype which uses an alternative input method and does not use the typical key inputs such as W/A/S/D.
 ## Game idea
