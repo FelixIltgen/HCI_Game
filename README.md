@@ -1,18 +1,18 @@
 # HCI_Game
-### Prüfungsabgabe im Modul HCI in Games
-Bei diesem Projekt handelt es sich um eine Prüfungsabgabe welche im Zusammenhang mit dem Modul HCI in Games meines Masterstudiums an der HS Offenburg entstanden ist. Die Prüfungsleistung bestand aus einer Hausarbeit zum Thema HCI in Games und einem zusätzlichen praktischen Teil welcher aus der Umsetzung eines Spiel-Prototyp welcher eine alternative Eingabemethode nutzt und nicht die typischen Tasteneingaben wie beispielsweise W/A/S/D nutzt.
-## Spielidee
-Meine Idee war es ein Spiel mit Audio eingabe zu entwickeln. Ziel sollte es sein die Audioeingabe als Haupteingabemöglichkeit zu nutzen und über gängige Headsets oder eingebaute Microphone abzufragen. 
+### Exam submission in the HCI in Games module at Offenburg University of Applied Sciences.
+This project is an examination assignment that was created in connection with the HCI in Games module of my Master's program at the HS Offenburg. The examination consisted of a term paper on HCI in Games and an additional practical part which consisted of the realization of a game prototype which uses an alternative input method and does not use the typical key inputs such as W/A/S/D.
+## Game idea
+My idea was to develop a game with audio input. The aim was to use the audio input as the main input option and to query it via common headsets or built-in microphones.
 # Handlung im Spiel
-Ziel im Spiel ist es einen Baum wachsen zu lassen indem eine Regenwolke über den Baum gesteuert werden soll. Dadurch erhält der Baum Wasser und kommt in das nächste wachstums Stadiums. Falls die Wolke sich auserhalb des Spielfelds bewegt geht diese kaputt. Gesteuert wird die Wolke über die Spracheingabe. Jede Wolke begwegt sich mit einer konstanten Geschwindigkeit über das Spielfeld. Der Spieler muss durch pusten dafür sorgen, dass die Wolke sich immer im Spielfeld bewegt. 
+The aim of the game is to make a tree grow by directing a rain cloud over the tree. This gives the tree water and takes it to the next growth stage. If the cloud moves outside the playing field, it will break. The cloud is controlled by voice input. Each cloud moves across the playing field at a constant speed. The player must ensure that the cloud always moves within the playing field by blowing.
 ## Hausarbeit
-Der Haupteil dieses Projektes lag im schreiben der Hausarbeit zusätzlich dazu sollte der Prototyp umgesetzt werden um die Hypothesen aus der Hausarbeit zu unterstützen. Dabei lagen die Anfoderungen des Prototyps auf der Implementierung und nicht auf der graphischen Umsetzung.
+The main part of this project was to write the term paper, in addition to which the prototype was to be implemented to support the hypotheses from the term paper. The requirements of the prototype were on the implementation and not on the graphical realization.
 
 ![Image](https://github.com/user-attachments/assets/aee061f6-0214-42a0-914c-847a8ec47bf9)
 
 ## Umsetzung 
-Als Plattform und Entwicklungsumgebung habe ich mich für Unity und C# entschieden. 
-Geschrieben wurde das Projekt mit:
+I chose Unity and C# as my platform and development environment.
+The project was written with:
 ```
-Mit Unity 2022.3.27f1
+Unity 2022.3.27f1
 ```
